@@ -3,6 +3,13 @@
 Generate one 2D PNG per molecular structure using RDKit. Images and their
 2D coordinates are generated locally; PubChem image files are never used.
 
+## Contents
+
+- [Installation](#installation) · [Examples and test environment](#examples-and-test-environment) ·
+  [Usage](#usage) · [Highlight functional groups](#highlight-functional-groups) ·
+  [Contributing](#contributing) · [Contact and support](#contact-and-support) ·
+  [License](#license)
+
 ## Installation
 
 Requires Python 3.10+, Git and the system dependencies required by RDKit.
@@ -12,10 +19,8 @@ python -m pip install .
 ```
 
 The package links the GitHub versions of `molecular-selector`,
-`molecular-utilities`, and `sdf-downloader`. **Before installing, publish the
-packaging changes in the SDF downloader repository:** its existing GitHub
-revision is not pip-installable. The other Git dependencies and RDKit are
-installed by pip.
+`molecular-utilities`, and `sdf-downloader`. Pip installs these dependencies
+and RDKit; Git and network access are required.
 
 ## Examples and test environment
 
@@ -195,3 +200,18 @@ The old `highlight_all` CSV column, `--highlight-all` CLI option, and
 For Python, pass sequences to the constructor, for example
 `ImageGenerator(highlight_names=["thiol"], highlight_smarts=["[O]"],
 highlight_common=True)`.
+
+## Contributing
+
+Open an issue or submit a pull request. Include tests and update documentation
+when behavior changes.
+
+## Contact and support
+
+- GitHub: [@eisenmann-bastian](https://github.com/eisenmann-bastian)
+- LinkedIn: [Bastian Eisenmann](https://www.linkedin.com/in/bastianeisenmann/)
+- [Buy me a coffee](https://buymeacoffee.com/bastian.eisenmann)
+
+## License
+
+[BSD 3-Clause License](LICENSE).

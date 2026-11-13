@@ -6,6 +6,8 @@ build-backend = "setuptools.build_meta"
 name = "molecular-image-generator"
 version = "0.1.0"
 description = "Generate molecular 2D images from structures and identifiers"
+readme = "README.md"
+license = {file = "LICENSE"}
 requires-python = ">=3.10"
 dependencies = [
     "rdkit>=2024.9",
