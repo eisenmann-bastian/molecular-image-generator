@@ -1,0 +1,6 @@
+compound,smiles,highlight_smarts
+Adenosine,Nc1ncnc2c1ncn2C1OC(CO)C(O)C1O,[OX2H]
+Guanosine,Nc1nc2c(ncn2C2OC(CO)C(O)C2O)c(=O)[nH]1,[OX2H]
+Cytidine,NC1=NC=CC(=O)N1C1OC(CO)C(O)C1O,[OX2H]
+Uridine,O=C1NC=CC(=O)N1C1OC(CO)C(O)C1O,[OX2H]
+Thymidine,CC1=CN(C2OC(CO)CC2O)C(=O)NC1=O,[OX2H]

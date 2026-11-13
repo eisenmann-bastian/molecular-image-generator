@@ -1,0 +1,21 @@
+compound,smiles,highlight_common
+Glycine,NCC(=O)O,true
+Alanine,NC(C)C(=O)O,true
+Valine,NC(C(C)C)C(=O)O,true
+Leucine,NC(CC(C)C)C(=O)O,true
+Isoleucine,NC(C(C)CC)C(=O)O,true
+Serine,NC(CO)C(=O)O,true
+Threonine,NC(C(O)C)C(=O)O,true
+Cysteine,NC(CS)C(=O)O,true
+Methionine,NC(CCSC)C(=O)O,true
+Aspartic acid,NC(CC(=O)O)C(=O)O,true
+Glutamic acid,NC(CCC(=O)O)C(=O)O,true
+Asparagine,NC(CC(N)=O)C(=O)O,true
+Glutamine,NC(CCC(N)=O)C(=O)O,true
+Lysine,NC(CCCCN)C(=O)O,true
+Arginine,NC(CCCNC(=N)N)C(=O)O,true
+Histidine,NC(Cc1c[nH]cn1)C(=O)O,true
+Phenylalanine,NC(Cc1ccccc1)C(=O)O,true
+Tyrosine,NC(Cc1ccc(O)cc1)C(=O)O,true
+Tryptophan,NC(Cc1c[nH]c2ccccc12)C(=O)O,true
+Proline,O=C(O)C1CCCN1,true

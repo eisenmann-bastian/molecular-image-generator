@@ -1,0 +1,6 @@
+compound,smiles,highlight_smarts
+Glucose,OCC1OC(O)C(O)C(O)C1O,[OX2H]
+Fructose,OCC1OC(O)(CO)C(O)C1O,[OX2H]
+Ribose,OCC1OC(O)C(O)C1O,[OX2H]
+Deoxyribose,OCC1OC(O)CC1O,[OX2H]
+Sucrose,OCC1OC(OC2(CO)OC(CO)C(O)C2O)C(O)C(O)C1O,[OX2H]

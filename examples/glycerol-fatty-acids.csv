@@ -1,0 +1,9 @@
+compound,smiles,highlight
+Glycerol,OCC(O)CO,alcohol
+Lauric acid,CCCCCCCCCCCC(=O)O,carboxylic acid
+Myristic acid,CCCCCCCCCCCCCC(=O)O,carboxylic acid
+Palmitic acid,CCCCCCCCCCCCCCCC(=O)O,carboxylic acid
+Stearic acid,CCCCCCCCCCCCCCCCCC(=O)O,carboxylic acid
+Oleic acid,CCCCCCCC/C=C\CCCCCCCC(=O)O,carboxylic acid
+Linoleic acid,CCCCC/C=C\C/C=C\CCCCCCCC(=O)O,carboxylic acid
+Alpha-linolenic acid,CC/C=C\C/C=C\C/C=C\CCCCCCCC(=O)O,carboxylic acid

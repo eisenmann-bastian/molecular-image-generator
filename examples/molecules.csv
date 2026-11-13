@@ -1,0 +1,5 @@
+smiles,inchi,name,sdf,highlight,highlight_smarts
+CCO,,,,primary alcohol,
+,InChI=1S/H2O/h1H2,,,,[O]
+,,benzene,,aromatic ring,
+,,,ethanethiol.sdf,thiol,
