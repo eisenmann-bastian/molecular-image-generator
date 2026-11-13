@@ -146,6 +146,8 @@ depend on the other groups present. If groups overlap, all their colors are
 shown on the shared atoms and bonds. All atoms of each matched group and
 bonds between atoms within that same match are highlighted;
 this is not limited to molecular-selector's narrower interaction-site atoms.
+Highlights are drawn in soft pastel colors with narrower bonds and standard
+atom-label colors to keep the molecular structure readable.
 The options apply to every molecule, including every CSV row and SDF record.
 No match produces an unhighlighted image. Unknown selectors and invalid
 SMARTS are errors; command-line values are checked before processing inputs.

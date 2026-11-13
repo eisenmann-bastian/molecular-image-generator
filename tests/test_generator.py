@@ -15,7 +15,9 @@ from rdkit.Chem.Draw import rdMolDraw2D
 from molecular_selector import FunctionalGroup, MolecularSelector
 from PIL import Image
 
-from molecular_image_generator.generator import ImageGenerator, _DEFAULT_COLORS, _highlight_color
+from molecular_image_generator.generator import (
+    ImageGenerator, _DEFAULT_COLORS, _HIGHLIGHT_STRENGTH, _highlight_color,
+)
 from molecular_image_generator import cli
 
 
@@ -298,7 +300,9 @@ class ImageGeneratorTests(unittest.TestCase):
             pixels = image.convert("RGB").getcolors(image.width * image.height)
             pixel_colors = {color for _, color in pixels}
         for color in (_DEFAULT_COLORS["amine"], _DEFAULT_COLORS["carboxyl"]):
-            self.assertIn(tuple(round(channel * 255) for channel in color), pixel_colors)
+            expected = tuple((1 - (1 - channel) * _HIGHLIGHT_STRENGTH) * 255 for channel in color)
+            self.assertTrue(any(all(abs(actual - target) <= 1 for actual, target in zip(pixel, expected))
+                                for pixel in pixel_colors), f"Missing highlight color {expected}")
         serine_colors, _ = generator._highlight_colors(Chem.MolFromSmiles("NC(CO)C(=O)O"))
         self.assertNotIn(serine_colors[2][0], (_DEFAULT_COLORS["amine"], _DEFAULT_COLORS["carboxyl"]))
 
@@ -315,11 +319,13 @@ class ImageGeneratorTests(unittest.TestCase):
         svg_drawer = rdMolDraw2D.MolDraw2DSVG(400, 300)
         depiction = Chem.Mol(molecule)
         rdDepictor.Compute2DCoords(depiction)
-        svg_drawer.DrawMoleculeWithHighlights(depiction, "", atoms, bonds, {}, {})
+        generator._draw_highlighted(svg_drawer, depiction, atoms, bonds)
         svg_drawer.FinishDrawing()
         svg = svg_drawer.GetDrawingText().upper()
         for color in atoms[1]:
-            hex_color = "#{:02X}{:02X}{:02X}".format(*(int(channel * 255) for channel in color))
+            hex_color = "#{:02X}{:02X}{:02X}".format(
+                *(int((1 - (1 - channel) * _HIGHLIGHT_STRENGTH) * 255) for channel in color)
+            )
             self.assertIn(hex_color, svg)
 
     def test_same_group_aliases_and_multiple_matches_have_same_color(self):

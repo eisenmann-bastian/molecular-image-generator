@@ -33,6 +33,7 @@ _DEFAULT_COLORS = {
     "carboxyl": (1.0, 0.45, 0.35),
     "aromatic": (0.72, 0.55, 0.9),
 }
+_HIGHLIGHT_STRENGTH = 0.48
 
 
 def _highlight_color(identity, attempt=0):
@@ -138,6 +139,22 @@ class ImageGenerator:
         return sorted(atoms), sorted(bonds)
 
     @staticmethod
+    def _draw_highlighted(drawer, mol, atom_colors, bond_colors):
+        options = drawer.drawOptions()
+        options.highlightRadius = 0.22
+        options.highlightBondWidthMultiplier = 5
+        options.standardColoursForHighlightedAtoms = True
+
+        def soften(color_map):
+            return {
+                index: [tuple(1 - (1 - channel) * _HIGHLIGHT_STRENGTH for channel in color)
+                        for color in colors]
+                for index, colors in color_map.items()
+            }
+
+        drawer.DrawMoleculeWithHighlights(mol, "", soften(atom_colors), soften(bond_colors), {}, {})
+
+    @staticmethod
     def _molecules(kind, value):
         if kind == "sdf":
             yield from MolecularSelector.read_sdf(value)
@@ -187,7 +204,7 @@ class ImageGenerator:
                 rdDepictor.Compute2DCoords(depiction)
                 drawer = rdMolDraw2D.MolDraw2DCairo(self.width, self.height)
                 if atoms:
-                    drawer.DrawMoleculeWithHighlights(depiction, "", atoms, bonds, {}, {})
+                    self._draw_highlighted(drawer, depiction, atoms, bonds)
                 else:
                     drawer.DrawMolecule(depiction)
                 drawer.FinishDrawing()
